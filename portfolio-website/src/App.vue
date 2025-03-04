@@ -37,7 +37,7 @@
         <h2 class="section-title">About Me</h2>
         <div class="about-content">
           <div class="about-image">
-            <div class="image-placeholder"><img src="/kazybekkh.png" alt="profilePic" class="profilePic"></div>
+            <div class="image-placeholder"><img src="/kazy.jpeg" alt="profilePic" class="profilePic"></div>
           </div>
           <div class="about-text">
             <h3>Full name: <span class = "highlight">Kazybek Khairulla</span></h3>
