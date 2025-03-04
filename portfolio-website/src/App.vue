@@ -4,10 +4,19 @@
     <!-- Navigation Bar -->
     <nav class="navbar">
       <div class="container">
-        <div :class="['logo', { 'hidden': isScrolled }]">
-          <img src="/kk_faceLogo.png" alt="EXRS image" class="face-logo" @click="goToAbout">
+
+        <!-- Show Logo if NOT mobile OR (mobile AND scrolled) -->
+        <div v-if="!isSmallScreen || (isSmallScreen && isScrolled)" class="logo">
+          <img
+            src="/kk_faceLogo.png"
+            alt="EXRS image"
+            class="face-logo"
+            @click="goToAbout"
+          />
         </div>
-        <ul class="nav-links">
+
+        <!-- Show Nav Links if NOT mobile OR (mobile AND NOT scrolled) -->
+        <ul v-if="!isSmallScreen || (isSmallScreen && !isScrolled)" class="nav-links">
           <li><a href="#home">Home</a></li>
           <li><a href="#about">About</a></li>
           <li><a href="#education">Education</a></li>
@@ -16,6 +25,7 @@
           <li><a href="#activities">Activities</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
+
       </div>
     </nav>
 
@@ -257,17 +267,45 @@
       </div>
     </footer>
   </div>
+  
 </template>
 
 <script>
 export default {
   name: 'App',
+  data() {
+    return {
+      isScrolled: false,
+      isSmallScreen: false
+    };
+  },
+  mounted() {
+    // Check once on load
+    this.checkScreenSize();
+    this.handleScroll();
+
+    // Listen for screen resize and scroll
+    window.addEventListener('resize', this.checkScreenSize);
+    window.addEventListener('scroll', this.handleScroll);
+  },
+  beforeUnmount() {
+    window.removeEventListener('resize', this.checkScreenSize);
+    window.removeEventListener('scroll', this.handleScroll);
+  },
   methods: {
     goToAbout() {
       window.location.href = '#about';
+    },
+    checkScreenSize() {
+      // Adjust this breakpoint as needed (e.g., 768px)
+      this.isSmallScreen = window.innerWidth < 768;
+    },
+    handleScroll() {
+      // After scrolling down 50px, consider "scrolled"
+      this.isScrolled = window.scrollY > 50;
     }
   }
-}
+};
 </script>
 <style>
 /* Base Styles */
@@ -408,12 +446,14 @@ ul {
 }
 
 .logo {
+  transition: opacity 0.3s ease;
   font-size: 1.8rem;
   font-weight: 700;
   color: var(--primary-color);
 }
 
 .nav-links {
+  transition: opacity 0.3s ease;
   display: flex;
   gap: 1.5rem;
 }
