@@ -1,12 +1,10 @@
 <!-- App.vue -->
 <template>
-  <div class="app">
+ <div class="app" :class="{ 'only-logo': isSmallScreen && isScrolled }">
     <!-- Navigation Bar -->
-    <nav class="navbar">
+    <nav class="navbar" :class="{ 'scrolled-mobile': isSmallScreen && isScrolled }">
       <div class="container">
-
-        <!-- Show Logo if NOT mobile OR (mobile AND scrolled) -->
-        <div v-if="!isSmallScreen || (isSmallScreen && isScrolled)" class="logo">
+        <div class="logo">
           <img
             src="/kk_faceLogo.png"
             alt="EXRS image"
@@ -14,9 +12,7 @@
             @click="goToAbout"
           />
         </div>
-
-        <!-- Show Nav Links if NOT mobile OR (mobile AND NOT scrolled) -->
-        <ul v-if="!isSmallScreen || (isSmallScreen && !isScrolled)" class="nav-links">
+        <ul class="nav-links">
           <li><a href="#home">Home</a></li>
           <li><a href="#about">About</a></li>
           <li><a href="#education">Education</a></li>
@@ -25,7 +21,6 @@
           <li><a href="#activities">Activities</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
-
       </div>
     </nav>
 
@@ -280,11 +275,13 @@ export default {
     };
   },
   mounted() {
-    // Check once on load
+    // Check screen size once on load
     this.checkScreenSize();
+
+    // Check scroll position once on load
     this.handleScroll();
 
-    // Listen for screen resize and scroll
+    // Listen for resize and scroll
     window.addEventListener('resize', this.checkScreenSize);
     window.addEventListener('scroll', this.handleScroll);
   },
@@ -297,11 +294,11 @@ export default {
       window.location.href = '#about';
     },
     checkScreenSize() {
-      // Adjust this breakpoint as needed (e.g., 768px)
+      // Adjust breakpoint as you like (e.g., 768px)
       this.isSmallScreen = window.innerWidth < 768;
     },
     handleScroll() {
-      // After scrolling down 50px, consider "scrolled"
+      // Example threshold: 50px. Adjust as needed.
       this.isScrolled = window.scrollY > 50;
     }
   }
@@ -325,7 +322,22 @@ export default {
   padding: 0;
   box-sizing: border-box;
 }
-
+.app,
+.navbar,
+.nav-links,
+.hero,
+.section,
+.footer {
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+.only-logo .hero,
+.only-logo .section,
+.only-logo .footer,
+.only-logo .nav-links {
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden; /* ensures no interactive elements remain clickable */
+}
 body {
   font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   line-height: 1.6;
@@ -446,12 +458,19 @@ ul {
 }
 
 .logo {
-  transition: opacity 0.3s ease;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
   font-size: 1.8rem;
   font-weight: 700;
   color: var(--primary-color);
 }
-
+.only-logo .logo {
+  opacity: 1;
+  visibility: visible;
+}
+.scrolled-mobile {
+  background: transparent !important;
+  box-shadow: none !important;
+}
 .nav-links {
   transition: opacity 0.3s ease;
   display: flex;
