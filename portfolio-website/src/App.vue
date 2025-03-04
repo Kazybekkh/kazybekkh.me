@@ -2,10 +2,9 @@
 <template>
   <div class="app">
     <!-- Navigation Bar -->
-    <nav class="navbar">
+    <nav class="navbar" v-if="!isMobile">
       <div class="container">
-        <!-- Hide this entire <div> if it's mobile -->
-        <div :class="['logo', { 'hidden': isScrolled }]" v-if="!isMobile">
+        <div :class="['logo', { 'hidden': isScrolled }]">
           <img
             src="/kk_faceLogo.png"
             alt="EXRS image"
@@ -13,7 +12,6 @@
             @click="goToAbout"
           >
         </div>
-
         <ul class="nav-links">
           <li><a href="#home">Home</a></li>
           <li><a href="#about">About</a></li>
