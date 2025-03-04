@@ -4,7 +4,7 @@
     <!-- Navigation Bar -->
     <nav class="navbar">
       <div class="container">
-        <div class="logo">KK</div>
+        <div class="logo"><img src="/kk_faceLogo.png" alt="EXRS image" class="face-logo" @click="goToAbout"></div>
         <ul class="nav-links">
           <li><a href="#home">Home</a></li>
           <li><a href="#about">About</a></li>
@@ -21,8 +21,9 @@
     <section id="home" class="hero">
       <div class="container">
         <h1>Hello, I'm <span class="highlight">Kazybek</span></h1>
-        <h2>Computer Science Student</h2>
-        <p>Passionate about software development, algorithms, and problem-solving</p>
+        <h2>BSc Computer Science Student @ University of Exeter</h2>
+        <p>Currently first-year student with a strong foundation in Java and C++.</p>
+        <p>Passionate about Computer Science & Engineering, Algorithms, and Humanoid Robotics and AI</p>
         <div class="cta-buttons">
           <a href="#projects" class="btn primary">View Projects</a>
           <a href="#contact" class="btn secondary">Contact Me</a>
@@ -36,11 +37,12 @@
         <h2 class="section-title">About Me</h2>
         <div class="about-content">
           <div class="about-image">
-            <div class="image-placeholder">Profile Image</div>
+            <div class="image-placeholder"><img src="/kazybekkh.png" alt="profilePic" class="profilePic"></div>
           </div>
           <div class="about-text">
-            <p>I'm a Computer Science student with a passion for developing innovative solutions to complex problems. My academic journey has equipped me with strong foundations in algorithms, data structures, and software engineering principles.</p>
-            <p>When I'm not coding, you can find me participating in hackathons, contributing to open-source projects, or exploring the latest technologies in AI and web development.</p>
+            <h3>Full name: <span class = "highlight">Kazybek Khairulla</span></h3>
+            <p>I'm currently studying Computer Science at the University of Exeter. My interests lie primarily in Robotics Engineering and Artificial Intelligence with a focus in Autonomous Systems and Computer Vision.</p>
+            <p>When I'm not coding, you can find me participating in hackathons, prototyping embedded systems hardware, or exploring the latest technologies in AI and Robotics.</p>
             <p>I'm actively seeking internship opportunities where I can apply my skills, learn from industry experts, and contribute to meaningful projects.</p>
           </div>
         </div>
@@ -56,19 +58,22 @@
             <div class="timeline-dot"></div>
             <div class="timeline-content">
               <h3>Bachelor of Science in Computer Science</h3>
-              <h4>University Name</h4>
-              <p class="timeline-date">2022 - Present</p>
-              <p>Relevant Coursework: Data Structures and Algorithms, Object-Oriented Programming, Database Systems, Computer Networks, Operating Systems, Software Engineering</p>
-              <p>GPA: 3.8/4.0</p>
+              <h4>University of Exeter</h4>
+              <p class="timeline-date">2024 - 2027</p>
+              <p>Relevant Coursework: Data Structures and Algorithms, Object-Oriented Programming, Machine Learning Fundamentals, Computational Mathematics, Computer Architecture, Discrete Math</p>
+              <p>Upper Class Hons (pred)</p>
             </div>
           </div>
           <div class="timeline-item">
             <div class="timeline-dot"></div>
             <div class="timeline-content">
               <h3>High School Diploma</h3>
-              <h4>High School Name</h4>
-              <p class="timeline-date">2018 - 2022</p>
-              <p>Advanced Placement in Mathematics and Computer Science</p>
+              <h4>Nexus International School (Singapore)</h4>
+              <p class="timeline-date">2020 - 2024</p>
+              <p>IGCSE & International Baccalaureate Diploma</p>
+              <p>IB HL: Computer Science, Economics, Business Management</p>
+              <p>IB SL: AA Maths, English A, Chinese B (Mandarin)</p>
+              <p>Activities: HackClub @Nexus Founder & Lead, co-Founder of 'NexWell' Wellbeing app</p>
             </div>
           </div>
         </div>
@@ -83,41 +88,40 @@
           <div class="skills-category">
             <h3>Programming Languages</h3>
             <ul class="skills-list">
-              <li>Python</li>
+              <li>C/C++</li>
               <li>Java</li>
-              <li>C++</li>
+              <li>Python</li>
               <li>JavaScript</li>
-              <li>TypeScript</li>
             </ul>
           </div>
           <div class="skills-category">
-            <h3>Web Development</h3>
+            <h3>Mobile Development</h3>
             <ul class="skills-list">
-              <li>HTML/CSS</li>
-              <li>Vue.js</li>
-              <li>React</li>
-              <li>Node.js</li>
-              <li>Express</li>
+              <li>Codename One</li>
+              <li>Maven</li>
+              <li>Gradle</li>
+              <li>XCode & IntellIj IDEA</li>
             </ul>
           </div>
           <div class="skills-category">
             <h3>Tools & Technologies</h3>
             <ul class="skills-list">
               <li>Git & GitHub</li>
+              <li>Linux</li>
+              <li>Arduino + Raspberry Pi</li>
               <li>Docker</li>
-              <li>AWS</li>
-              <li>MongoDB</li>
+              <li>MongoDB + Atlas</li>
               <li>SQL</li>
             </ul>
           </div>
           <div class="skills-category">
             <h3>Other Skills</h3>
             <ul class="skills-list">
-              <li>Data Structures</li>
-              <li>Algorithms</li>
-              <li>Machine Learning</li>
-              <li>Agile Development</li>
-              <li>Problem Solving</li>
+              <li>Data Structures (Linked Lists, Queues, Stacks, Trees)</li>
+              <li>Algorithms (Graph Theory)</li>
+              <li>Machine Learning (t-SNE, PCA, UMAP using scikitlearn)</li>
+              <li>Computer Architecture</li>
+              <li>Software Development</li>
             </ul>
           </div>
         </div>
@@ -130,45 +134,47 @@
         <h2 class="section-title">Projects</h2>
         <div class="projects-grid">
           <div class="project-card">
-            <div class="project-image">Project 1 Image</div>
-            <h3>Algorithmic Trading Bot</h3>
-            <p>Developed a Python-based trading bot that uses machine learning algorithms to predict stock market trends and execute trades automatically.</p>
+            <div class="project-image"><img src="/nexwell.png" alt="nexwell" class="cardIcon"></div>
+            <h3>Wellbeing Mobile App (Cross-platform)</h3>
+            <p>Co-founder & Project Coordinator of 'NexWell'</p>
+            <div class="project-tech">
+              <span>Java</span>
+              <span>Codename One</span>
+              <span>Maven</span>
+              <span>APIs</span>
+              <span>iOS</span>
+              <span>Android</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/emma-rei/nexus-mental-wellness" class="btn small" >View on GitHub</a>
+              <a href="https://honeykidsasia.com/nexwell-nexus-learners/" class="btn small secondary">Featured article</a>
+            </div>
+          </div>
+          <div class="project-card">
+            <div class="project-image">    <img src="/kazcable.png" alt="KazCable Icon" class="cardIcon2"></div>
+            <h3>kazCables DBMS Software</h3>
+            <p>Built a DBMS Software for a client for managing company records using Java and MySQL.</p>
+            <div class="project-tech">
+              <span>Java</span>
+              <span>Swing</span>
+              <span>MySQL</span>
+              <span>MailHog</span>
+              <span>tempMail</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/Kazybekkh/KazCable-DBMS.git" class="btn small">View on GitHub</a>
+            </div>
+          </div>
+          <div class="project-card">
+            <div class="project-image">    <img src="/battleships.png" alt="Battleships Icon" class="cardIcon"></div>
+            <h3>Battleships Game</h3>
+            <p>Battleships game using Python and Flask</p>
             <div class="project-tech">
               <span>Python</span>
-              <span>TensorFlow</span>
-              <span>APIs</span>
+              <span>Flask</span>
             </div>
             <div class="project-links">
-              <a href="#" class="btn small">Demo</a>
-              <a href="#" class="btn small secondary">GitHub</a>
-            </div>
-          </div>
-          <div class="project-card">
-            <div class="project-image">Project 2 Image</div>
-            <h3>Campus Navigation App</h3>
-            <p>Created a mobile application to help students navigate campus, find classrooms, and manage their course schedules efficiently.</p>
-            <div class="project-tech">
-              <span>React Native</span>
-              <span>Firebase</span>
-              <span>Google Maps API</span>
-            </div>
-            <div class="project-links">
-              <a href="#" class="btn small">Demo</a>
-              <a href="#" class="btn small secondary">GitHub</a>
-            </div>
-          </div>
-          <div class="project-card">
-            <div class="project-image">Project 3 Image</div>
-            <h3>Course Management System</h3>
-            <p>Built a full-stack web application for course management, allowing professors to create assignments and students to submit their work.</p>
-            <div class="project-tech">
-              <span>Vue.js</span>
-              <span>Node.js</span>
-              <span>MongoDB</span>
-            </div>
-            <div class="project-links">
-              <a href="#" class="btn small">Demo</a>
-              <a href="#" class="btn small secondary">GitHub</a>
+              <a href="https://github.com/Kazybekkh/BattleshipsGame.git" class="btn small">View on GitHub</a>
             </div>
           </div>
         </div>
@@ -181,22 +187,34 @@
         <h2 class="section-title">Clubs & Activities</h2>
         <div class="activities-grid">
           <div class="activity-card">
+            <h3>Robotics Society</h3>
+            <p class="activity-role">Founder & President(25/26) Full-time</p>
+            <p class="activity-date">2025 - Present</p>
+            <p>Design, build, and program robotics projects. Host hands-on workshops, technical talks, and support students in robotics innovation.</p>
+          </div>
+          <div class="activity-card">
             <h3>Computer Science Society</h3>
-            <p class="activity-role">Vice President</p>
-            <p class="activity-date">2023 - Present</p>
-            <p>Organize weekly coding workshops, hackathons, and industry speaker events. Mentor junior students in programming and career development.</p>
+            <p class="activity-role">Member</p>
+            <p class="activity-date">2024 - Present</p>
+            <p>Participated in hackathons between universities and competitive programming contests.</p>
           </div>
           <div class="activity-card">
-            <h3>Competitive Programming Team</h3>
-            <p class="activity-role">Team Member</p>
-            <p class="activity-date">2022 - Present</p>
-            <p>Participate in regional and national competitive programming contests. Achieved top 10 ranking in the 2023 Regional Collegiate Programming Contest.</p>
-          </div>
-          <div class="activity-card">
-            <h3>Open Source Contributors Club</h3>
+            <h3>Google Developer Club</h3>
             <p class="activity-role">Active Member</p>
-            <p class="activity-date">2023 - Present</p>
-            <p>Contribute to various open source projects. Organized workshops to introduce students to open source contribution.</p>
+            <p class="activity-date">2024 - Present</p>
+            <p>Led beginner friendly workshops in Python to introduce non-STEM students to Programming & CS.</p>
+          </div>
+          <div class="activity-card">
+            <h3>Kazakh Society</h3>
+            <p class="activity-role">Active Member</p>
+            <p class="activity-date">2024 - Present</p>
+            <p>Contribute to various events. Organized workshop quizzes to introduce students to kazakh culture.</p>
+          </div>
+          <div class="activity-card">
+            <h3>HackClub@Nexus Lead (High School)</h3>
+            <p class="activity-role">Founder & former-President</p>
+            <p class="activity-date">2022-2024</p>
+            <p>Organized weekly coding workshops, hackathons, and industry speaker events. Mentor high-school students in programming</p>
           </div>
         </div>
       </div>
@@ -210,37 +228,20 @@
           <div class="contact-info">
             <div class="contact-item">
               <h3>Email</h3>
-              <p>yourname@email.com</p>
+              <p>khairullakazybek32@gmail.com</p>
             </div>
             <div class="contact-item">
               <h3>Location</h3>
-              <p>City, Country</p>
+              <p>Exeter, United Kingdom</p>
             </div>
             <div class="contact-item">
               <h3>Social</h3>
               <div class="social-links">
-                <a href="#" class="social-link">GitHub</a>
-                <a href="#" class="social-link">LinkedIn</a>
-                <a href="#" class="social-link">Twitter</a>
+                <a href="https://github.com/Kazybekkh/" class="social-link">GitHub</a>
+                <a href="https://www.linkedin.com/in/kazybek-khairulla-788058218/" class="social-link">LinkedIn</a>
+                <a href="https://x.com/NightodevZ" class="social-link">Twitter</a>
               </div>
             </div>
-          </div>
-          <div class="contact-form">
-            <form>
-              <div class="form-group">
-                <label for="name">Name</label>
-                <input type="text" id="name" name="name" required>
-              </div>
-              <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" required>
-              </div>
-              <div class="form-group">
-                <label for="message">Message</label>
-                <textarea id="message" name="message" rows="5" required></textarea>
-              </div>
-              <button type="submit" class="btn primary">Send Message</button>
-            </form>
           </div>
         </div>
       </div>
@@ -259,17 +260,13 @@
 <script>
 export default {
   name: 'App',
-  data() {
-    return {
-      // Data can be added here if needed for dynamic content
-    }
-  },
   methods: {
-    // Methods can be added here
+    goToAbout() {
+      window.location.href = '#about';
+    }
   }
 }
 </script>
-
 <style>
 /* Base Styles */
 :root {
@@ -345,6 +342,30 @@ ul {
 .btn.primary {
   background-color: var(--primary-color);
   color: white;
+}
+.face-logo {
+  width: 100px; /* Adjust the width as needed */
+  height: auto; /* Maintain aspect ratio */
+  display: block;
+  margin: 0 auto; /* Center the image */
+}
+.profilePic {
+  width: 400px; /* Adjust the width as needed */
+  height: auto; /* Maintain aspect ratio */
+  display: block;
+  margin: 0 auto; /* Center the image */
+}
+.cardIcon {
+  width: 200px; 
+  height: auto; 
+  display: block;
+  margin: 0 auto; 
+}
+.cardIcon2 {
+  width: 550px; 
+  height: auto; 
+  display: block;
+  margin: 0 auto; 
 }
 
 .btn.secondary {
