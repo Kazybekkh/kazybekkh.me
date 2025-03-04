@@ -1,20 +1,12 @@
 <!-- App.vue -->
 <template>
- <div class="app" :class="{ 'only-logo': isSmallScreen && isScrolled }">
+  <div class="app">
     <!-- Navigation Bar -->
-    <nav class="navbar" :class="{ 'scrolled-mobile': isSmallScreen && isScrolled }">
+    <nav class="navbar">
       <div class="container">
-        <!-- Logo always visible -->
-        <div class="logo">
-          <img
-            src="/kk_faceLogo.png"
-            alt="EXRS image"
-            class="face-logo"
-            @click="goToAbout"
-          />
+        <div :class="['logo', { 'hidden': isScrolled }]">
+          <img src="/kk_faceLogo.png" alt="EXRS image" class="face-logo" @click="goToAbout">
         </div>
-
-        <!-- These links fade out on mobile scroll -->
         <ul class="nav-links">
           <li><a href="#home">Home</a></li>
           <li><a href="#about">About</a></li>
@@ -265,46 +257,17 @@
       </div>
     </footer>
   </div>
-  
 </template>
 
 <script>
 export default {
   name: 'App',
-  data() {
-    return {
-      isScrolled: false,
-      isSmallScreen: false
-    };
-  },
-  mounted() {
-    // Check screen size initially
-    this.checkScreenSize();
-    // Check scroll position initially
-    this.handleScroll();
-
-    // Listen for future screen resize & scroll
-    window.addEventListener('resize', this.checkScreenSize);
-    window.addEventListener('scroll', this.handleScroll);
-  },
-  beforeDestroy() {
-    window.removeEventListener('resize', this.checkScreenSize);
-    window.removeEventListener('scroll', this.handleScroll);
-  },
   methods: {
     goToAbout() {
       window.location.href = '#about';
-    },
-    checkScreenSize() {
-      // Adjust breakpoint as needed
-      this.isSmallScreen = window.innerWidth < 768;
-    },
-    handleScroll() {
-      // If scrolled more than 50px, hide nav links
-      this.isScrolled = window.scrollY > 50;
     }
   }
-};
+}
 </script>
 <style>
 /* Base Styles */
@@ -324,22 +287,7 @@ export default {
   padding: 0;
   box-sizing: border-box;
 }
-.app,
-.navbar,
-.nav-links,
-.hero,
-.section,
-.footer {
-  transition: opacity 0.5s ease, visibility 0.5s ease;
-}
-.only-logo .hero,
-.only-logo .section,
-.only-logo .footer,
-.only-logo .nav-links {
-  opacity: 0;
-  pointer-events: none;
-  visibility: hidden; /* ensures no interactive elements remain clickable */
-}
+
 body {
   font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   line-height: 1.6;
@@ -404,8 +352,10 @@ ul {
   margin: 0 auto; /* Center the image */
 }
 .profilePic {
-  width: 100%; /* Adjust the width as needed */
-  border-radius: 10px;
+  width: 400px; /* Adjust the width as needed */
+  height: auto; /* Maintain aspect ratio */
+  display: block;
+  margin: 0 auto; /* Center the image */
 }
 .cardIcon {
   width: 200px; 
@@ -418,7 +368,6 @@ ul {
   height: auto; 
   display: block;
   margin: 0 auto; 
-  
 }
 
 .btn.secondary {
@@ -460,28 +409,15 @@ ul {
 }
 
 .logo {
-  display: flex;
-  align-items: center;
-  /* You can add a transition if you like, e.g. transition: opacity 0.3s */
-}
-.only-logo .logo {
-  opacity: 1;
-  visibility: visible;
-}
-.scrolled-mobile {
-  background: transparent !important;
-  box-shadow: none !important;
-}
-.scrolled-mobile .nav-links {
-  opacity: 0;
-  pointer-events: none;
-  visibility: hidden;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--primary-color);
 }
 
 .nav-links {
-  transition: opacity 0.3s ease, visibility 0.3s ease;
+  display: flex;
+  gap: 1.5rem;
 }
-
 
 .nav-links a {
   font-weight: 500;
@@ -528,12 +464,10 @@ ul {
   display: flex;
   gap: 3rem;
   align-items: center;
-  flex-wrap: wrap;
 }
 
 .about-image {
   flex: 1;
-  max-width: 300px;
 }
 
 .image-placeholder {
