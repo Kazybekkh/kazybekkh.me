@@ -352,10 +352,8 @@ ul {
   margin: 0 auto; /* Center the image */
 }
 .profilePic {
-  width: 400px; /* Adjust the width as needed */
-  height: auto; /* Maintain aspect ratio */
-  display: block;
-  margin: 0 auto; /* Center the image */
+  width: 100%; /* Adjust the width as needed */
+  border-radius: 10px;
 }
 .cardIcon {
   width: 200px; 
@@ -368,6 +366,7 @@ ul {
   height: auto; 
   display: block;
   margin: 0 auto; 
+  
 }
 
 .btn.secondary {
@@ -464,10 +463,12 @@ ul {
   display: flex;
   gap: 3rem;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 .about-image {
   flex: 1;
+  max-width: 300px;
 }
 
 .image-placeholder {
