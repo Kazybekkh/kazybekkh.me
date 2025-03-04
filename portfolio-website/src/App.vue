@@ -4,6 +4,7 @@
     <!-- Navigation Bar -->
     <nav class="navbar" :class="{ 'scrolled-mobile': isSmallScreen && isScrolled }">
       <div class="container">
+        <!-- Logo always visible -->
         <div class="logo">
           <img
             src="/kk_faceLogo.png"
@@ -12,6 +13,8 @@
             @click="goToAbout"
           />
         </div>
+
+        <!-- These links fade out on mobile scroll -->
         <ul class="nav-links">
           <li><a href="#home">Home</a></li>
           <li><a href="#about">About</a></li>
@@ -275,17 +278,16 @@ export default {
     };
   },
   mounted() {
-    // Check screen size once on load
+    // Check screen size initially
     this.checkScreenSize();
-
-    // Check scroll position once on load
+    // Check scroll position initially
     this.handleScroll();
 
-    // Listen for resize and scroll
+    // Listen for future screen resize & scroll
     window.addEventListener('resize', this.checkScreenSize);
     window.addEventListener('scroll', this.handleScroll);
   },
-  beforeUnmount() {
+  beforeDestroy() {
     window.removeEventListener('resize', this.checkScreenSize);
     window.removeEventListener('scroll', this.handleScroll);
   },
@@ -294,11 +296,11 @@ export default {
       window.location.href = '#about';
     },
     checkScreenSize() {
-      // Adjust breakpoint as you like (e.g., 768px)
+      // Adjust breakpoint as needed
       this.isSmallScreen = window.innerWidth < 768;
     },
     handleScroll() {
-      // Example threshold: 50px. Adjust as needed.
+      // If scrolled more than 50px, hide nav links
       this.isScrolled = window.scrollY > 50;
     }
   }
@@ -458,10 +460,9 @@ ul {
 }
 
 .logo {
-  transition: opacity 0.5s ease, visibility 0.5s ease;
-  font-size: 1.8rem;
-  font-weight: 700;
-  color: var(--primary-color);
+  display: flex;
+  align-items: center;
+  /* You can add a transition if you like, e.g. transition: opacity 0.3s */
 }
 .only-logo .logo {
   opacity: 1;
@@ -471,11 +472,16 @@ ul {
   background: transparent !important;
   box-shadow: none !important;
 }
-.nav-links {
-  transition: opacity 0.3s ease;
-  display: flex;
-  gap: 1.5rem;
+.scrolled-mobile .nav-links {
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
 }
+
+.nav-links {
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
 
 .nav-links a {
   font-weight: 500;
