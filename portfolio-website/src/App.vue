@@ -4,7 +4,9 @@
     <!-- Navigation Bar -->
     <nav class="navbar">
       <div class="container">
-        <div class="logo"><img src="/kk_faceLogo.png" alt="EXRS image" class="face-logo" @click="goToAbout"></div>
+        <div :class="['logo', { 'hidden': isScrolled }]">
+          <img src="/kk_faceLogo.png" alt="EXRS image" class="face-logo" @click="goToAbout">
+        </div>
         <ul class="nav-links">
           <li><a href="#home">Home</a></li>
           <li><a href="#about">About</a></li>
@@ -349,11 +351,11 @@ ul {
   display: block;
   margin: 0 auto; /* Center the image */
 }
-
 .profilePic {
-  width: 100%; /* Adjust the width as needed */
+  width: 400px; /* Adjust the width as needed */
   height: auto; /* Maintain aspect ratio */
-  border-radius: 10px; /* Center the image */
+  display: block;
+  margin: 0 auto; /* Center the image */
 }
 .cardIcon {
   width: 200px; 
@@ -462,12 +464,10 @@ ul {
   display: flex;
   gap: 3rem;
   align-items: center;
-  flex-wrap: wrap;
 }
 
 .about-image {
   flex: 1;
-  max-width: 300px;
 }
 
 .image-placeholder {
@@ -743,6 +743,12 @@ ul {
 }
 
 @media (max-width: 768px) {
+  .navbar .logo{
+    transition: opacity 0.3s ease;
+  }
+  .navbar .logo.hidden{
+    opacity: 0;
+  }
   .navbar .container {
     flex-direction: column;
     padding: 1rem;
