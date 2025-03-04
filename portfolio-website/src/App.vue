@@ -2,15 +2,10 @@
 <template>
   <div class="app">
     <!-- Navigation Bar -->
-    <nav class="navbar" v-if="!isMobile">
+    <nav class="navbar">
       <div class="container">
         <div :class="['logo', { 'hidden': isScrolled }]">
-          <img
-            src="/kk_faceLogo.png"
-            alt="EXRS image"
-            class="face-logo"
-            @click="goToAbout"
-          >
+          <img src="/kk_faceLogo.png" alt="EXRS image" class="face-logo" @click="goToAbout">
         </div>
         <ul class="nav-links">
           <li><a href="#home">Home</a></li>
@@ -267,31 +262,12 @@
 <script>
 export default {
   name: 'App',
-  data() {
-    return {
-      isScrolled: false,
-      isMobile: false
-    };
-  },
-  mounted() {
-    // Check on load
-    this.checkScreenSize();
-    // Listen for resize
-    window.addEventListener('resize', this.checkScreenSize);
-  },
-  beforeUnmount() {
-    window.removeEventListener('resize', this.checkScreenSize);
-  },
   methods: {
     goToAbout() {
       window.location.href = '#about';
-    },
-    checkScreenSize() {
-      // If the screen is below 768px => mobile
-      this.isMobile = window.innerWidth < 768;
     }
   }
-};
+}
 </script>
 <style>
 /* Base Styles */
