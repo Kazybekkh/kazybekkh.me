@@ -190,9 +190,12 @@
         <div class="activities-grid">
           <div class="activity-card">
             <h3>Robotics Society</h3>
-            <p class="activity-role">Founder & President(25/26) Full-time</p>
+            <p class="activity-role">Founder & President(25/26)</p>
             <p class="activity-date">2025 - Present</p>
             <p>Design, build, and program robotics projects. Host hands-on workshops, technical talks, and support students in robotics innovation.</p>
+            <div class="project-links">
+              <a href="https://www.linkedin.com/company/exeter-robotics-society/" class="btn small secondary">View on LinkedIn</a>
+            </div>
           </div>
           <div class="activity-card">
             <h3>Computer Science Society</h3>
